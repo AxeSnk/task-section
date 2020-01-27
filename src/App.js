@@ -1,8 +1,10 @@
 import React from "react";
 import TodoList from "./Todo/TodoList";
+import Panel from "./Panel/Panel";
+import Context from './context'
 
 function App() {
-  const todos = [
+  const [todos, setTodos]= React.useState([
     {
       id: 1,
       title: "Описание задачи №1",
@@ -35,16 +37,38 @@ function App() {
       plannedEndDate: "12.05.2019",
       actualEndDate: "20.04.2019"
     }
-  ];
+  ]
+  )
+
+  const info = {
+    id: 0
+  }
+
+  function openModal(id) {
+    setTodos(
+      todos = todos.map(todo => {
+        if (todo.id === id) {
+          console.log('todo id', id)
+        }
+        return todo
+      })  
+    )
+  }
+  
+  function removeTodo(id) {
+    setTodos(todos.filter(todo => todo.id !== id))
+  }
 
   return (
-    <div className="wrapper__task-section">
-      <h1>Прототип - раздел задач</h1>
+    <Context.Provider value={{removeTodo}}>
+      <div className="wrapper__task-section">
+        <h1>Прототип - раздел задач</h1>
 
-      <div className="control-panel"></div>
+        <Panel info={info} key={info.id} />
 
-      <TodoList todos={todos} />
-    </div>
+        <TodoList todos={todos} onEdit={openModal} />
+      </div>
+    </Context.Provider>
   );
 }
 

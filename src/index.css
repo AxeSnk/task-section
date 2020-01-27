@@ -19,25 +19,37 @@ code {
 }
 
 .wrapper__task-section {
-  width: fit-content;
+  width: 962px;
   border: 1px solid rgba(121, 121, 121, 1);
   padding: 0.67rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1{
   margin-block-start: 0;
   margin-block-end: 0;
-  margin-bottom: 1rem;
   font-size: 32px;
   color: rgb(51, 51, 51);
+  align-self: flex-start;
 }
-.table__tr {
-  display: flex;
-  border: 1px solid black;
-  justify-content: space-between;
-  margin-top: -1px;
+
+.table__td:first-child {
+  width: 40%
 }
-.table__td {
-  padding: 0.2rem 0.6rem;
-  border-right: 1px solid black;
+.table__td:nth-child(2) {
+  width: 10%
+}
+.table__td:nth-child(3) {
+  width: 10%
+}
+.table__td:nth-child(4) {
+  width: 15%
+}
+.table__td:nth-child(5) {
+  width: 15%
+}
+.table__td:nth-child(6) {
+  width: 10%
 }

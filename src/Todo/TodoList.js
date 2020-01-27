@@ -2,16 +2,33 @@ import React from "react";
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem";
 
-export const styles = {
-  ul: {
-    listStyle: "none",
-    margin: 0,
-    padding: 0
+const styles = {
+  table: {
+    border: "1px solid grey",
+    borderCollapse: "collapse",
+    width: "100%",
+    textAlign: "center",
+    alignItems: "center",
   },
-  div: {
-    borderRight: "none"
-  }
-};
+  td: {
+    border: "1px solid grey",
+  },
+  taskTable: {
+    width: "100%",
+    textAlign: "center",
+    alignItems: "center",
+  },
+  width40: {
+    width: "40%"
+  },
+  width15: {
+    width: "15%"
+  },
+  width10: {
+    width: "10%"
+  },
+
+}
 
 const headTr = [
   {
@@ -27,34 +44,36 @@ const headTr = [
 
 function TodoHeadItem({ headTr }) {
   return (
-    <li className="table__tr head__tr">
-      <div className="table__td">{headTr.cell1}</div>
-      <div className="table__td">{headTr.cell2}</div>
-      <div className="table__td">{headTr.cell3}</div>
-      <div className="table__td">{headTr.cell4}</div>
-      <div className="table__td">{headTr.cell5}</div>
-      <div style={styles.div} className="table__td">{headTr.cell6}</div>
-    </li>
+    <tr className="table__tr head__tr">
+      <td style={styles.td} className="table__td">{headTr.cell1}</td>
+      <td style={styles.td} className="table__td">{headTr.cell2}</td>
+      <td style={styles.td} className="table__td">{headTr.cell3}</td>
+      <td style={styles.td} className="table__td">{headTr.cell4}</td>
+      <td style={styles.td} className="table__td">{headTr.cell5}</td>
+      <td style={styles.td} className="table__td">{headTr.cell6}</td>
+    </tr>
   );
 }
 
 function TodoList(props) {
   return (
-    <div className="task-table">
-      <ul style={styles.ul}>
+    <div style={styles.taskTable} className="task-table">
+      <table style={styles.table}>
         {headTr.map(headTr => {
           return <TodoHeadItem headTr={headTr} key={headTr.id} />;
         })}
         {props.todos.map(todo => {
-          return <TodoItem todo={todo} key={todo.id} />;
+          return <TodoItem todo={todo} key={todo.id} edit={props.onEdit} />;
         })}
-      </ul>
+      </table>
     </div>
   );
 }
 
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.object).isRequired
+  headTr: PropTypes.arrayOf(PropTypes.object).isRequired,
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onEdit: PropTypes.func.isRequired
 };
 
 export default TodoList;
