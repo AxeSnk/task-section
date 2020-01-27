@@ -8,15 +8,15 @@ const styles = {
     borderCollapse: "collapse",
     width: "100%",
     textAlign: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   td: {
-    border: "1px solid grey",
+    border: "1px solid grey"
   },
   taskTable: {
     width: "100%",
     textAlign: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   width40: {
     width: "40%"
@@ -26,9 +26,8 @@ const styles = {
   },
   width10: {
     width: "10%"
-  },
-
-}
+  }
+};
 
 const headTr = [
   {
@@ -45,12 +44,24 @@ const headTr = [
 function TodoHeadItem({ headTr }) {
   return (
     <tr className="table__tr head__tr">
-      <td style={styles.td} className="table__td">{headTr.cell1}</td>
-      <td style={styles.td} className="table__td">{headTr.cell2}</td>
-      <td style={styles.td} className="table__td">{headTr.cell3}</td>
-      <td style={styles.td} className="table__td">{headTr.cell4}</td>
-      <td style={styles.td} className="table__td">{headTr.cell5}</td>
-      <td style={styles.td} className="table__td">{headTr.cell6}</td>
+      <td style={styles.td} className="table__td">
+        {headTr.cell1}
+      </td>
+      <td style={styles.td} className="table__td">
+        {headTr.cell2}
+      </td>
+      <td style={styles.td} className="table__td">
+        {headTr.cell3}
+      </td>
+      <td style={styles.td} className="table__td">
+        {headTr.cell4}
+      </td>
+      <td style={styles.td} className="table__td">
+        {headTr.cell5}
+      </td>
+      <td style={styles.td} className="table__td">
+        {headTr.cell6}
+      </td>
     </tr>
   );
 }
