@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-const styles = {
-  div: {
-    display: "flex",
-    padding: "1rem 0"
-  }
-};
-
 function Panel({ onCreate, info }) {
   const [value, setValue] = useState("");
 
@@ -21,7 +14,7 @@ function Panel({ onCreate, info }) {
   }
 
   return (
-    <div style={styles.div} className="control-panel">
+    <div className="control-panel">
       <form onSubmit={submitHandler}>
         <button type="submit">Добавить задачу</button>
         <input value={value} onChange={event => setValue(event.target.value)} />

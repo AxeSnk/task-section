@@ -4,7 +4,7 @@ import Panel from "./Panel/Panel";
 import Context from "./context";
 
 function App() {
-  const [todos, setTodos] = React.useState([
+  let [todos, setTodos] = React.useState([
     {
       id: 1,
       title: "Описание задачи №1",
@@ -39,10 +39,6 @@ function App() {
     }
   ]);
 
-  const info = {
-    id: 0
-  };
-
   function openModal(id) {
     setTodos(
       (todos = todos.map(todo => {
@@ -63,7 +59,7 @@ function App() {
       todos.concat([
         {
           title,
-          id: Date.now
+          id: Date.now()
         }
       ])
     );
@@ -74,7 +70,7 @@ function App() {
       <div className="wrapper__task-section">
         <h1>Прототип - раздел задач</h1>
 
-        <Panel onCreate={addTodo} info={info} key={info.id} />
+        <Panel onCreate={addTodo} />
 
         <TodoList todos={todos} onEdit={openModal} />
       </div>
